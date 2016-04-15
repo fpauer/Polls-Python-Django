@@ -11,6 +11,8 @@
     email: admin@example.com
 
 
+### Implemented
+
 ok - Make the /polls page the home page for the application.
 
 ok - Apply the same template to all pages so they look presentable.
@@ -25,10 +27,11 @@ ok - When a user is logged in and viewing the home page they should see a link f
 
 ok - Questions should be associated with a user.
 
-Next implementations
+### Next implementations
  - 50% Users should be able to register to create a new poll. On the home page there should be a link to register.
  - Using a JS Chart to display the polls results
  - Implement tags inside question
  - Home - user can sort by the tags most used
+ - Unit tests
 
 
