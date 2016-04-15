@@ -1,0 +1,32 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+
+      {% if request.user.is_authenticated %}
+
+          {% if latest_question_list %}
+              <ul>
+              {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:details' question.id %}">{{ question.question_text }}</a></li>
+              {% endfor %}
+              </ul>
+          {% else %}
+             <p>No polls registered.</p>
+
+             <a class="btn btn-primary" href="{% url 'polls:create_question' %}">Add your first Poll</a>
+          {% endif %}
+
+        {% else %}
+
+          <div class="jumbotron">
+              <div class="container">
+                <h1>Hello, </h1>
+                <p>This is a amazing Poll Application please register before or if you already have an accoun please login.</p>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'polls:register' %}" role="button">Register »</a></p>
+              </div>
+            </div>
+
+        {% endif%}
+
+{% endblock %}

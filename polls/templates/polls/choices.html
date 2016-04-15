@@ -1,0 +1,39 @@
+{% extends "polls/base.html" %}
+{% block content %}
+    <div id="login">
+        <form class="form-horizontal" name="LoginForm" action="" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="fa fa-line-chart"></span> {{ question.question_text }}</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                {% for choice in question.choice_set.all %}
+                    <label class="list-group-item" for="choice{{ forloop.counter }}">
+                        <div class="radiobutton">
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />{{ choice.choice_text }}
+                        </div>
+                    </label>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        {% if form.errors %}
+                    <ul class="errorlist">
+                        <li>The question field is required.</li>
+                    </ul>
+        {% endif %}
+        <br/>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}

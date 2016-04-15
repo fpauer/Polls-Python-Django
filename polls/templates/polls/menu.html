@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Polls</a>
+    </div>
+    <ul class="nav nav-pills pull-right">
+        {% if request.user.is_authenticated %}
+        <li role="presentation" class="active"><a href="{% url 'polls:logout' %}">Logoff</a></li>
+        {% else %}
+        <li role="presentation" class="active"><a href="{% url 'polls:login' %}">Login</a></li>
+        <li role="presentation"><a href="{% url 'polls:register' %}">Register</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>

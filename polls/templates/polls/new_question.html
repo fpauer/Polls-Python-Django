@@ -1,0 +1,28 @@
+{% extends "polls/base.html" %}
+{% block content %}
+    <div id="login">
+        <form class="form-horizontal" name="LoginForm" action="" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+        <div class="control-group">
+            <label class="control-label" for="id_question_text">Question</label>
+            <div class="controls">
+                <input type="text" id="id_question_text" name="question_text"  placeholder="What is the question ?">
+            </div>
+        </div>
+        {% if form.errors %}
+                    <ul class="errorlist">
+                        <li>The question field is required.</li>
+                    </ul>
+        {% endif %}
+        <br/>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}

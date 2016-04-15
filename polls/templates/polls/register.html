@@ -1,0 +1,14 @@
+{% extends "polls/base.html" %}
+{% block content %}
+    <div id="login">
+        <form class="form-horizontal" action="." method="POST">
+        {% csrf_token %}
+        {{userform}}
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}
